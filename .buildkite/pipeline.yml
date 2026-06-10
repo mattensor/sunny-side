@@ -1,0 +1,12 @@
+steps:
+  - label: ":typescript: Type check"
+    command: "npm run check"
+
+  - label: ":biome: Lint"
+    command: "npm run lint"
+
+  - label: ":vitest: Test %N of %t"
+    parallelism: 4
+    command: "npm run test:shard"
+    env:
+      NODE_ENV: "test"
