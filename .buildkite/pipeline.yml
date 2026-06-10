@@ -1,12 +1,19 @@
 steps:
+  - label: ":npm: Install dependencies"
+    command: "npm ci"
+    key: "install"
+
   - label: ":typescript: Type check"
     command: "npm run check"
+    depends_on: "install"
 
   - label: ":biome: Lint"
     command: "npm run lint"
+    depends_on: "install"
 
   - label: ":vitest: Test %N of %t"
     parallelism: 4
     command: "npm run test:shard"
+    depends_on: "install"
     env:
       NODE_ENV: "test"
