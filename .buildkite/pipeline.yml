@@ -1,15 +1,15 @@
 steps:
   - label: ":typescript: Type check"
     command: "npm ci && npm run check"
-    cache: "node_modules"
+    image: "node:22"
 
   - label: ":biome: Lint"
     command: "npm ci && npm run lint"
-    cache: "node_modules"
+    image: "node:22"
 
   - label: ":vitest: Test %N of %t"
     parallelism: 4
     command: "npm ci && npm run test:shard"
-    cache: "node_modules"
+    image: "node:22"
     env:
       NODE_ENV: "test"
