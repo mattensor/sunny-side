@@ -1,0 +1,24 @@
+{
+	"name": "sunny-side",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:debug": "vitest --inspect-brk --no-file-parallelism",
+		"check": "tsc --noEmit",
+		"format": "biome format .",
+		"lint": "biome lint ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.13",
+		"@types/node": "latest",
+		"tsx": "latest",
+		"typescript": "latest",
+		"vitest": "latest"
+	},
+	"allowScripts": {
+		"esbuild@0.28.0": true,
+		"fsevents@2.3.3": true
+	}
+}
