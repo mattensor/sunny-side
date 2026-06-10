@@ -1,8 +1,9 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from "vitest/config"
 
 export default defineConfig({
 	test: {
 		environment: "node",
-		fileParallelism: false,
-	},
-});
+		include: ["src/**/*.test.ts"],
+		slowTestThreshold: 200
+	}
+})
