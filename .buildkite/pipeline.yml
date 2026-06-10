@@ -8,7 +8,7 @@ steps:
     image: "node:22"
 
   - label: ":vitest: Test %N of %t"
-    parallelism: 4
+    parallelism: 2
     command: "npm ci && npm run test:shard"
     image: "node:22"
     env:
