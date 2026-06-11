@@ -6,10 +6,14 @@ steps:
   - label: ":biome: Lint"
     command: "npm ci && npm run lint"
     image: "node:22"
-
-  - label: ":vitest: Test %N of %t"
+  - label: "Vitest"
+    command: npm ci && bktec run
+    plugins:
+      - tests#v1.0.0:
+          test-runner: jest
+          test-cmd: "npx vitest run {{testExamples}} --reporter=json --outputFile={{resultPath}}"
+          result-path: tmp/vitest-results.json
     parallelism: 2
-    command: "npm ci && npm run test:shard"
     image: "node:22"
     env:
       NODE_ENV: "test"
