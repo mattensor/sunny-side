@@ -11,7 +11,7 @@ steps:
     plugins:
       - tests#v1.0.0:
           test-runner: jest
-          test-cmd: "npx vitest run {{testExamples}} --reporter=json --outputFile={{resultPath}}"
+          test-cmd: "npx vitest run {{testExamples}} --reporter=json --outputFile {{resultPath}}"
           result-path: tmp/vitest-results.json
           client-version: "2.8.0"
     parallelism: 2
